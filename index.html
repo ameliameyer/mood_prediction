@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Spotify Analysis</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon.io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon.io/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico/">
+    
+    <script src="https://kit.fontawesome.com/4acb3cc904.js" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+    body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
+    .w3-row-padding img {margin-bottom: 12px}
+    .bgimg {
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-image: url('https://raw.githubusercontent.com/ameliameyer/music_project/main/images/spotify_grey_logo.jpg');
+      min-height: 100%;
+    }
+    </style>
+  </head>
+<body>
+
+<!-- Sidebar with image -->
+<nav class="w3-sidebar w3-hide-medium w3-hide-small" style="width:40%">
+  <div class="bgimg"></div>
+</nav>
+
+<!-- Hidden Sidebar (reveals when clicked on menu icon)-->
+<nav class="w3-sidebar w3-black w3-animate-right w3-xxlarge" style="display:none;padding-top:150px;right:0;z-index:2" id="mySidebar">
+  <a href="javascript:void(0)" onclick="closeNav()" class="w3-button w3-black w3-xxxlarge w3-display-topright" style="padding:0 12px;">
+    <i class="fa fa-remove"></i>
+  </a>
+  <div class="w3-bar-block w3-center">
+    <a href="index.html" class="w3-bar-item w3-button w3-text-grey w3-hover-black" onclick="closeNav()">Home</a>
+    <a href="packages.html" class="w3-bar-item w3-button w3-text-grey w3-hover-black" onclick="closeNav()">Packages</a> 
+    <a href="data_prep.html" class="w3-bar-item w3-button w3-text-grey w3-hover-black" onclick="closeNav()">Data Prep</a>
+    <a href="eda.html" class="w3-bar-item w3-button w3-text-grey w3-hover-black" onclick="closeNav()">EDA</a>
+    <a href="wrapped.html" class="w3-bar-item w3-button w3-text-grey w3-hover-black" onclick="closeNav()">Spotify Wrapped 2022</a>
+    <a href="summary.html" class="w3-bar-item w3-button w3-text-grey w3-hover-black" onclick="closeNav()">Summary</a>
+    
+  </div>
+</nav>
+
+<!-- Page Content -->
+<div class="w3-main w3-padding-large" style="margin-left:40%">
+
+  <!-- Menu icon to open sidebar -->
+  <span class="w3-button w3-top w3-white w3-xxlarge w3-text-grey w3-hover-text-black" style="width:auto;right:0;" onclick="openNav()"><i class="fa fa-bars"></i></span>
+
+  <!-- Header -->
+  <header class="w3-container w3-center" style="padding:128px 16px" id="home">
+    <h1 class="w3-jumbo"><b>My Liked Songs on Spotify</b></h1>
+    <p>Data Preprocessing, EDA, Visualizations, Spotify Wrapped, & Music Recommendations</p>
+    <a href="https://github.com/ameliameyer/music_project" class="w3-button w3-black w3-padding-large w3-margin-top" target="_blank">
+      <i class="fa fa-github-alt"></i> Github Repository
+    </a>
+    
+  </header>
+  
+  <!-- Background -->
+  <div class="w3-content w3-justify w3-text-grey w3-padding-32" id="about">
+    <h2>Background</h2>
+    <hr class="w3-opacity">
+    <p><a href="https://newsroom.spotify.com/company-info/" target="_blank">Spotify</a> is an audio-streaming platform with over 80 million tracks which first 
+      launched in Sweden in 2008. The platform's content mainly includes music, but extends to podcasts and videos as well from creators around the world. Users can choose
+      a premium paid, ad-free experience with offline listening or the free version which does include ads. Spotify functionality includes recommended playlists and 
+      user-created playlists. 
+      </p>
+  
+  <!-- About Section -->
+  <div class="w3-content w3-justify w3-text-grey w3-padding-32" id="about">
+    <h2>About This Project</h2>
+    <hr class="w3-opacity">
+    <p>When users 'heart' a song, they are signifying that they like it, and it's added to what Spotify refers to as a Liked Songs playlist. Songs can also be
+    added to user-created playlists. These can be disclosed as private - limited to the user who created it - or public. Songs can also be added to a playlist by
+    multiple users. These are referred to as collaborative playlists. <br>
+    In this project, I extracted my Liked Songs from Spotify using <a href="https://spotipy.readthedocs.io/en/2.21.0/" target="_blank">Spotipy</a>, a Python library 
+      for the Spotify API, in order to perform analysis on my Spotify data. Spotipy allows you to extract the general information about the songs such as the names and
+      artists, as well as the particular audio features such as energy level or danceability. <br>
+      I also extracted my 2022 Spotify Wrapped Dataset. You can read more about these datasets on the Data Prep page of this project. 
+    </p>
+    
+    <br>
+    <p>
+      In this project, I analyzed the popularity of the tracks, the correlation of the audio features and the change in data attributes over time 
+      created visualization of the data using Python and Seaborn. </p>
+      
+    <p>
+    I used the data to answer the following: <br>
+    - Is there a relationship between different audio features of a song?  <br>
+    - Are the songs I listen to more or less popular?  <br>
+    - Which artists do I add the most?  <br>
+    - Is there a pattern to when I add the most songs or a certain type of songs? - seasons, months, days of the week, etc <br>
+    - Do I add more songs in the beginning or at the end of the month?  <br>
+    - How do the songs I've added compare to the most popular songs on Spotify in 2022, 2021, ...?  <br>
+</p>
+
+<!-- Contact Section -->
+  <div class="w3-padding-32 w3-content w3-text-grey" id="contact" style="margin-bottom:64px">
+    <h2>Contact Me</h2>
+    <hr class="w3-opacity">
+
+    <div class="w3-section">
+      <p><i class="fa fa-map-marker fa-fw w3-xxlarge w3-margin-right"></i> San Diego, California, US</p>
+      <p><i class="fa fa-phone fa-fw w3-xxlarge w3-margin-right"></i> Phone: +1 9512608344 </p>
+      <p><i class="fa fa-envelope fa-fw w3-xxlarge w3-margin-right"> </i> Email: amelianmeyer@gmail.com</p>
+    </div>
+    
+   
+  <!-- End Contact Section -->
+  </div>  
+ 
+   <!-- Footer. This section contains an ad for W3Schools Spaces. You can leave it to support us. -->
+  <footer class="w3-container w3-padding-64 w3-light-grey w3-center w3-opacity w3-xlarge" style="margin:-24px">
+    <a class="w3-button w3-round-xxlarge w3-small w3-dark-grey" href="https://ameliameyer.github.io/home/" target="_blank">Return To My Portfolio</a> 
+    <br>
+    <p class="w3-small">This website was made with W3schools Spaces.</p>
+    <!-- End footer -->
+  </footer>
+  
+<!-- END PAGE CONTENT -->
+</div>
+
+<script>
+// Open and close sidebar
+function openNav() {
+  document.getElementById("mySidebar").style.width = "60%";
+  document.getElementById("mySidebar").style.display = "block";
+}
+
+function closeNav() {
+  document.getElementById("mySidebar").style.display = "none";
+}
+</script>
+
+</body>
+</html>
